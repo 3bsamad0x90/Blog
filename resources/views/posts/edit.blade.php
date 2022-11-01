@@ -1,6 +1,9 @@
 @extends('layouts/app')
-@section('content')
+@section('title')
+    Blog | Edit
+@endsection
 
+@section('content')
 <form class="container" method="POST" action="{{route('posts.update',['id'=> $post->id])}}">
     @csrf
     @method('put')

@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('title')
+    Blog | Show Post
+@endsection
+
 @section("content")
     <div class="card mt-2">
             <h5 class="card-header">Post</h5>

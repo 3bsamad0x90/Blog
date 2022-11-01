@@ -1,4 +1,7 @@
 @extends('layouts/app')
+@section('title')
+    Blog | Create Post
+@endsection
 @section('content')
 
 <form class="container" method="POST" action="{{route('posts.store')}}">
