@@ -23,7 +23,7 @@
     <div class="form-group row">
         <label for="message" class="col-sm-2 col-form-label">Message</label>
         <div class="col-sm-10">
-        <input type="text" class="form-control" id="message" name="message">
+        <textarea class="form-control" id="message" name="message"></textarea>
         </div>
     </div>
     <div class="form-group row">
@@ -32,4 +32,6 @@
         </div>
     </div>
 </form>
+<script src="../resources/js/jquery-3.6.0.min.js"></script>
+<script src="../resources/js/ajax.js"></script>
 @endsection
