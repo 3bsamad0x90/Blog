@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<form class="mt-3" method="post" action="{{route('contact.store')}}">
+<form class="message mt-3" data-url="{{ route('contact.store') }}">
     @csrf
     <div class="form-group row">
         <label for="username" class="col-sm-2 col-form-label">User Name</label>
@@ -28,10 +28,13 @@
     </div>
     <div class="form-group row">
         <div class="col-sm-10">
-        <input type="submit" class="btn btn-primary" value="Send Message">
+        <input type="submit" class="btn btn-primary" value="Send Message" >
         </div>
     </div>
 </form>
-<script src="../resources/js/jquery-3.6.0.min.js"></script>
-<script src="../resources/js/ajax.js"></script>
+
 @endsection
+
+@push('scripts')
+    <script src={{ asset('js/ajax.js') }}></script>
+@endpush

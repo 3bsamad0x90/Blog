@@ -34,3 +34,8 @@ Route::get('/posts/{id}', [postController::class,'show'])->name('posts.show');
 //contact us
 Route::get('/contact', 'App\Http\Controllers\MessageController@index')->name('contact.index');
 Route::post('/contact/store', 'App\Http\Controllers\MessageController@store')->name('contact.store');
+//ajax
+Route::get('ajax',function() {
+    return view('message');
+ });
+ Route::post('/getmsg', [MessageController::class, 'getMessage']);

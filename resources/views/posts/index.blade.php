@@ -18,9 +18,10 @@
                 <?php $id = 0 ; ?>
                 @foreach($posts as $post)
                 <tr>
+
                     <th scope="row">{{++$id}}</th>
-                    <td>{{$post->title}}</td>
-                    <td>{{$post->posted_by}}</td>
+                    <td>{{ucfirst(trans($post->title))}}</td>
+                    <td>{{ucfirst(trans($post-> user ? $post-> user-> name : 'user not found'))}}</td>
                     <td>{{$post->created_at -> format('Y-m-d')}}</td>
                     <td>
                         <a href="{{route('posts.show',['id'=>$post->id])}}" class="btn btn-info">View</a>
@@ -60,4 +61,5 @@
     @endforeach
             </tbody>
         </table>
+        {{ $posts->onEachSide(4)->links() }}
 @endsection('content')
