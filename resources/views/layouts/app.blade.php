@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-2">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/posts') }}">
                     {{ 'Blog' }}

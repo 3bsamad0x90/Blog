@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\postController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\postController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +16,13 @@ use App\Http\Controllers\MessageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
 //Group of middleware
-Route::middleware('auth')->group(function(){
+Route::middleware(['auth'])->group(function(){
     //index page
     Route::get('/posts', [postController::class,'index'])->name('posts.index');
     //create post
@@ -35,16 +38,18 @@ Route::middleware('auth')->group(function(){
 
 });
 
-//contact us
-Route::get('/contact', 'App\Http\Controllers\MessageController@index')->name('contact.index');
-Route::post('/contact/store', 'App\Http\Controllers\MessageController@store')->name('contact.store');
-    
-//ajax
-Route::get('ajax',function() {
-    return view('message');
- });
- Route::post('/getmsg', [MessageController::class, 'getMessage']);
 
-Auth::routes();
+//Admin Login routes
+Route::get('/admin',[LoginController::class,'showAdminLoginForm'])->name('admin.login-view');
+Route::post('/admin',[LoginController::class,'adminLogin'])->name('admin.login');
+//Admin Registration routes
+Route::get('/admin/register',[RegisterController::class,'showAdminRegisterForm'])->name('admin.register-view');
+Route::post('/admin/register',[RegisterController::class,'createAdmin'])->name('admin.register');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/admin/dashboard',function(){
+    return view('admin');
+})->middleware('auth:admin');
+
+
+
