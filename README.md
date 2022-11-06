@@ -1,11 +1,7 @@
 <<<<<<< HEAD
 # Blog Website
-Blog Website With Multi Authentication 
-Tools: Laravel PHP Framework for backend development and Bootstrap CSS Framework For UI Design 
-=======
-<<<<<<< HEAD
-# Laravel CRUD Operations
-## Blog website to implement cred operations 
+##Blog Website With Multi Authentication 
+##Tools: Laravel PHP Framework for backend development and Bootstrap CSS Framework For UI Design 
 =======
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
