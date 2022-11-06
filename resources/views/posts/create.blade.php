@@ -16,14 +16,16 @@
         <label for="desc"><b>Description</b></label>
         <textarea id="desc" name="description" class="form-control mb-1 @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
         @error('description')
-        <div class="alert alert-danger">{{ $errors->first('description') }}</div>
+        <div class="alert alert-danger">
+            <strong>{{ $errors->first('description') }}</strong>
+        </div>
         @enderror
     </div>
     <div class="input-group mb-2">
         <div class="input-group-prepend">
-            <label class="input-group-text" for="posted_by">Posted By</label>
+            <label class="input-group-text mt-2" for="posted_by">Posted By</label>
         </div>
-        <select class="custom-select @error('user_id') is-invalid @enderror" id="posted_by" name="user_id">
+        <select class="form-select mt-2 @error('user_id') is-invalid @enderror" id="posted_by" name="user_id">
             <option selected>Choose...</option>
             @foreach ($users as $user)
             <option value="{{ $user -> id }}">{{ $user -> name }}</option>

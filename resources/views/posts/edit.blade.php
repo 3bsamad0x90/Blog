@@ -4,17 +4,17 @@
 @endsection
 
 @section('content')
-<form class="container" method="POST" action="{{route('posts.update',['id'=> $post->id])}}">
+<form class="container mb-3" method="POST" action="{{route('posts.update',['id'=> $post->id])}}">
     @csrf
     @method('put')
-    <div class="form-group mt-3">
+    <div class="form-group mb-3 mt-3">
         <label for="title"><b>Title</b></label>
         <input type="text" class="form-control  @error('title') is-invalid @enderror" id="title" name="title" value="{{$post->title}}">
         @error('title')
         <div class="alert alert-danger">{{ $errors->first('title') }}</div>
     @enderror
     </div>
-    <div class="form-group">
+    <div class="form-group mb-3">
         <label for="desc"><b>Description</b></label>
         <textarea id="desc" name="description" class="form-control @error('description') is-invalid @enderror" >{{$post->description}}</textarea>
         @error('description')
@@ -25,7 +25,7 @@
         <div class="input-group-prepend">
             <label class="input-group-text" for="posted_by">Posted By</label>
         </div>
-        <select class="custom-select @error('user_id') is-invalid @enderror" id="posted_by" name="user_id">
+        <select class="form-select @error('user_id') is-invalid @enderror" id="posted_by" name="user_id">
             <option selected>{{ $post->user->name }}</option>
             @foreach ($users as $user)
             <option value="{{ $user -> id }}">{{ $user -> name }}</option>
